@@ -15,7 +15,10 @@ public class Programa {
 		
 		Pessoa pessoa = em.find(Pessoa.class, 2);
 		
-		System.out.println(pessoa);
+		em.getTransaction().begin();
+		em.remove(pessoa);
+		em.getTransaction().commit();
+		
 		System.out.println("Pronto!");
 	}
 
